@@ -5,3 +5,6 @@ This project aims to develop a PFASRHSig composite machine learning model based 
 We have uploaded core codes for (a) PFASRHSig establishment and validation, (b) single cell landscape construction and (c) characterization of the expression patterns of PFAS core targets, as well as additional functions for visualization.
 
 Have fun!
+
+Steven-Jiajun Li
+Second school of clinical medicine, Wenzhou medical university

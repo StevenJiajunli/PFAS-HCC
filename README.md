@@ -7,4 +7,4 @@ We have uploaded core codes for (a) PFASRHSig establishment and validation, (b) 
 Have fun!
 
 Steven-Jiajun Li,
-Second school of clinical medicine, Wenzhou medical university
+The Second School of Clinial Medicine, Wenzhou Medical University, Wenzhou 325035, Zhejiang Province, China

@@ -1,7 +1,7 @@
 
 ## Create function: Enet Regression + ROC curve + KM plot
 
-run_ridge_train_validate <- function(train_df, test_list, gene_list, alpha = 0.1) {
+run_enet_train_validate <- function(train_df, test_list, gene_list, alpha = 0.1) {
   library(survival)
   library(glmnet)
   library(timeROC)
@@ -37,9 +37,11 @@ run_ridge_train_validate <- function(train_df, test_list, gene_list, alpha = 0.1
   selected_genes <- setdiff(selected_genes, "(Intercept)")
   message("Selected genes (", length(selected_genes), "): ", paste(selected_genes, collapse = ", "))
   
-  # ==== 2. Validation cohorts ====
+  # ==== 2. Validation cohorts ====  
   results <- list()
   colors <- c("#d42921", "#124f7b", "#fabf3d")  # consistent ROC colors
+
+  # Risk Score = exp(-0.0136531033 × ESR1 - 0.0057401447 × APOA1 - 0.0127939803 × IGF1 - 0.0601279664 × PPARGC1A + 0.0273195307 × SERPINE1 + 0.0476269799 × HMOX1 - 0.0001355368 × APCS - 0.0629751524 × ACADS - 0.0080130999 × SLC10A1 - 0.0245156728 × SLC2A2 - 0.0469738128 × ACAT1 - 0.0089196823 × C1S - 0.0848350866 × LCAT)
   
   for (name in names(test_list)) {
     message("Validating: ", name)
@@ -96,4 +98,4 @@ run_ridge_train_validate <- function(train_df, test_list, gene_list, alpha = 0.1
 
 train_df <- list_train_vali_Data$TCGA
 test_list <- list_train_vali_Data[names(list_train_vali_Data) != "TCGA"]
-res <- run_ridge_train_validate(train_df, test_list, final_sig)
+res <- run_enet_train_validate(train_df, test_list, final_sig)
